@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,100..900&display=swap" rel="stylesheet">
+    <title>Django</title>
+    <style>
+      :root {
+        --bg-color: #fdfdfd;
+        --label-bg: #ffffff;
+        --text-color: #202020;
+        --form-label-color: #595959;
+        --border-style: 2px dashed #dfdfdf;
+        --medium-weight: 600;
+      }
+      *{
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        padding: 1rem;
+        font-family: "Inter", sans-serif;
+        z-index: 1;
+        display: flex;
+        min-height: 100vh;
+        align-items: center;
+        justify-content: center;
+      }
+      .window_display {
+        background: var(--bg-color);
+        border-radius: 0.75rem;
+        box-shadow: 0 15px 1px rgba(0, 0, 0, 1),
+         0 -2px 1px rgba(0, 0, 0, 0.8);
+        width: min(720px, 92vw);
+        padding: 1.75rem 2rem;
+        animation: fadeInWithBlurOut 1.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+      }
+      .title {
+        margin: 0 0 0.5rem 0;
+        font-size: 2rem;
+        letter-spacing: 0.4px;
+        color: var(--text-color);
+      }
+      .subtitle {
+        margin: 0 0 1.5rem 0;
+        color: var(--form-label-color);
+      }
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+        gap: 0.75rem;
+      }
+      .item {
+        background: var(--label-bg);
+        border: var(--border-style);
+        border-radius: 0.625rem;
+        padding: 0.75rem 0.875rem;
+      }
+      .label {
+        font-size: 0.75rem;
+        text-transform: uppercase;
+        color: var(--form-label-color);
+        margin-bottom: 6px;
+      }
+      .value {
+        font-size: 1rem;
+        color: var(--text-color);
+        font-weight: var(--medium-weight);
+      }
+      .description {
+        margin-top: 18px;
+        padding: 0.75rem 0.875rem;
+        border-radius: 0.625rem;
+        background: var(--bg-color);
+        border: 0.1px solid rgba(0, 0, 0, 0.1);
+        color: var(--text-color);
+      }
+      .separator {
+        border: none;
+        border-top: 1px solid rgba(0, 0, 0, 0.1);
+        width: 100%;
+        margin: 1rem 0;
+      }
+      @keyframes fadeInWithBlurOut {
+        from {
+          opacity: 0;
+          filter: blur(10px);
+          transform: translateY(10px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+          filter: blur(0);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="window_display">
+      <h1 class="title">{{ full_name }}</h1>
+      <p class="subtitle">Some personal information about me</p>
+
+      <section class="grid">
+        <div class="item">
+          <div class="label">Student ID</div>
+          <div class="value">{{ student_id }}</div>
+        </div>
+        <div class="item">
+          <div class="label">major</div>
+          <div class="value">{{ major }}</div>
+        </div>
+        <div class="item">
+          <div class="label">Email</div>
+          <div class="value">{{ email }}</div>
+        </div>
+        <div class="item">
+          <div class="label">Course</div>
+          <div class="value">{{ course }}</div>
+        </div>
+      </section>
+      <hr class="separator" />
+      <div class="description-container">
+        <div class="item">
+        <div class="label">Description</div>
+        <p class="description">{{ description }}</p>
+      </div>
+    </main>
+  </body>
+</html>
