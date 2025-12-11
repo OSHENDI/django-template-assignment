@@ -100,21 +100,29 @@
   </head>
   <body>
     <main class="window_display">
-      <h1 class="title">{{ full_name }}</h1>
+      <h1 class="title">{{ first_name|capfirst|add:" "|add:last_name|capfirst}}</h1>
       <p class="subtitle">Some personal information about me</p>
 
       <section class="grid">
         <div class="item">
           <div class="label">Student ID</div>
-          <div class="value">{{ student_id }}</div>
+          <div class="value">{{ student_id|stringformat:"s" }}</div>
+        </div>
+        <div class="item">
+          <div class="label">Address</div>
+          <div class="value">{{ address|upper }}</div>
+        </div>
+        <div class="item">
+          <div class="label">Email</div>
+          <div class="value">{{ email|default:"none" }}</div>
         </div>
         <div class="item">
           <div class="label">major</div>
           <div class="value">{{ major }}</div>
         </div>
         <div class="item">
-          <div class="label">Email</div>
-          <div class="value">{{ email }}</div>
+          <div class="label">Date of Birth</div>
+          <div class="value">{{dob}} ({{ dob|timesince }} ago) </div>
         </div>
         <div class="item">
           <div class="label">Course</div>
