@@ -4,4 +4,4 @@ from .models import Student
 
 def index(request):
     student = Student.objects.first()
-    return render(request, "pages/index.html", {"student": student})
+    return render(request, "pages/home_page.html", {"student": student})
